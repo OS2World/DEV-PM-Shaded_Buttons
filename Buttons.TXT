@@ -1,0 +1,112 @@
+                                 Shaded Buttons
+                                 --------------
+                                 v. 0.2  (1997)
+                                 by Hubert Chan
+
+WHAT IT IS
+----------
+  It is a new window class that creates buttons with a rounded look by using a
+gradient pattern, so that the top of the button is lighter and the bottom is
+darker.  Buttons can also have rounded sides, they can have icons, and they can
+be vertical (so that the gradient pattern goes from left to right instead of
+top to bottom).  IMHO, it looks a lot nicer than normal push buttons.
+
+  Included is a sample program, modified from Petzold's "OS/2 Presentation
+Manager Programming".  It's a simple window with ten buttons: two in the
+middle with arrows pointing in or out, six coloured buttons on top of those
+buttons, with either a '<' or '>', one labelled "About", and one at the bottom
+which acts as a status bar.  The buttons in the middle, when pushed, either
+shrink or enlarge the window.  The coloured buttons change the colour of the
+"About" button.  The status bar reports the RGB values for the "About" button.
+The "About" button does what you think it does.
+
+  I have included the source file.  Feel free to modify it as you please for
+your own programs.  If you can fix any bugs, or if you change/add anything that
+you think may be helpful, send it to me, and I may include it in future
+versions.  Especially, help would be appreciated in getting this to work in a
+.DLL and in getting presentation parameters to work.
+
+NOTE: Although the file extension for the source file is .CPP, it's just a
+normal C file.  The only difference is it uses C++'s '//' comments.
+
+HOW TO USE IT
+-------------
+  Include Buttons.H in your source file.  To register the class with the
+Presentation Manager, call RegisterShadedButtonClass.  The class name is
+"GradButton", or you can use SHADEDBTNCLASS.  To make a button, call
+WinCreateWindow as you normally would to create a button.  Valid button styles
+are:
+    GBT_NOLEFTLINE  -removes the border on the left side of the button
+    GBT_LEFTROUND   -makes the left side rounded
+    GBT_NORIGHTLINE -removes the border on the right side of the button
+    GBT_RIGHTROUND  -makes the right side rouded
+    GBT_VERTICAL    -makes the button vertical (left to right gradient pattern)
+                     NOTE: NOLEFTLINE/LEFTROUND will change the top of the
+                     button and NORIGHTLINE/RIGHTROUND will change the bottom
+                     of the button if VERTICAL is set.
+                     (not yet implemented)
+    GBT_GRAPHIC     -uses an icon instead of text
+                     uses button "text" as the id number of the icon (probably
+                     will be changed to be more like the normal push button)
+    GBT_NOPUSH      -makes the button non-pushable (eg. to make status bars)
+You can also make a button in a dialog box in a resource file.  See
+ButtonTest.rc for an example.
+
+  When the button is pushed, it will send a WM_COMMAND message to its owner,
+just like a normal push button does.  It can also be activated by hitting the
+space bar when it has the focus.
+
+  To change the colour of the button, send it a GBM_SETCOLOR with mp1 set to
+the RGB value of the colour.
+
+CHANGES
+-------
+Since v. 0.1:
+  - added a window message (GBM_SETCOLOR) to change the colour of the button
+  - added a few buttons to the demo program, and made the status bar do
+    something more interresting
+  - buttons can now have rounded sides
+  - I've decided to make it completely free
+  - fixed some spelling mistakes in this file ;-)
+
+KNOWN BUGS
+----------
+  - presentation parameters don't seem to be working the way they should
+    (anyone know of a good book/resource that discusses presparams?)
+
+COMING SOON (?)
+---------------
+Things I have to add or change:
+  - make vertical buttons work
+  - use Presentation Parameters to have different colours, fonts, etc.  (Can
+    someone please tell me why it's not working for me?)
+  - allow text and bitmaps to be in the same button
+  - display button differently when active (I haven't decided exactly how it
+    should look when active)
+  - put it into a .DLL file (I tried, but my linker didn't want to do it)
+
+THE AUTHOR
+----------
+You can e-mail me at <hyc@gpu.srv.ualberta.ca>, or snail mail me at
+  Hubert Chan
+  3 Falstaff Ave.
+  St. Albert, AB
+  Canada, T8N 1V3
+Send me comments, criticism, or $$$ ;-)
+
+I have a home page set up at http://www.ualberta.ca/~hyc/Programming/.  The
+newest version of "Shaded Buttons" will always be there.
+
+COST
+----
+  Free.  I had considered eventually charging something once I had everything
+working the way I wanted it to, but I decided against it.  Of course, if you
+really want to send me something...
+
+WHERE TO GET IT
+---------------
+From my home page: http://www.ualberta.ca/~hyc/Programming/
+From Hobbes: http://hobbes.nmsu.edu or ftp://hobbes.nmsu.edu
+These are the only places that I will put the files in.  Feel free to upload it
+to other sites.
+

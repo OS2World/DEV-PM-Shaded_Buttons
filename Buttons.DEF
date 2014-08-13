@@ -1,0 +1,8 @@
+LIBRARY     BUTTONS   INITINSTANCE TERMINSTANCE
+
+DESCRIPTION 'Buttons with a gradiant pattern (c) Hubert Chan, 1996'
+PROTMODE
+DATA        MULTIPLE NONSHARED
+
+EXPORTS     RegisterShadedButtonClass
+
