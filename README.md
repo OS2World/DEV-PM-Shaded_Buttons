@@ -2,3 +2,19 @@ DEV-PM-Shaded_Buttons
 =====================
 
 Shaded Buttons is a new window class as a better-looking alternative to the normal OS/2 Push Button.
+
+LICENSE
+===============
+* BSD alike
+
+COMPILE TOOLS
+===============
+* 
+ 
+AUTHORS
+===============
+* Hubert Chan
+
+LINKS
+===============
+* 
